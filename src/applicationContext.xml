@@ -9,6 +9,8 @@
 
     <!--adding a entry to enable component scanning-->
     <context:component-scan base-package="br.pessoal.springdemo" />
+
+    <context:property-placeholder location="classpath:sport.properties" />
 </beans>
 
 
