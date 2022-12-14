@@ -7,7 +7,11 @@ public class BasketballConfigDemoApp {
 
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SportConfig.class);
 
-        Coach theCoach = context.getBean("basketballCoach", BasketballCoach.class);
+        BasketballCoach theCoach = context.getBean("basketballCoach", BasketballCoach.class);
+
+        System.out.println("basketball coach team name is "+theCoach.getTeam());
+        System.out.println("basketball coach contact is: "+theCoach.getEmail());
+
 
         System.out.println(theCoach.getDailyWorkout());
         System.out.println(theCoach.getDailyFortune());
