@@ -5,8 +5,13 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 @Component
-@Scope("prototype")
+
+//Change the scope to be created a new bean every time instead use singleton
+//@Scope("prototype")
 public class TennisCoach implements Coach{
 
     @Autowired
@@ -19,6 +24,18 @@ public class TennisCoach implements Coach{
 
     public TennisCoach() {
         System.out.println(">>> Default Constructor has called <<<");
+    }
+
+    //this annotation makes this method execute automatically after constructor
+    @PostConstruct
+    public void doMyStartUpStuff(){
+        System.out.println("TennisCoach: inside doMyStartUpStuff");
+    }
+
+    //this annotation makes this method execute automatically when the bean is going to be deleted
+    @PreDestroy
+    public void doMyCleanStuff(){
+        System.out.println("TennisCoach: inside doMyCleanStuff");
     }
 
     /**
